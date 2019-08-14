@@ -1,7 +1,7 @@
-module Homework01Spec where
-import Homework01 
-
+module HomeworkSpec where
+import Homework
 import Test.Hspec
+import Control.Exception (evaluate)
 
 spec :: Spec
 spec = do
@@ -39,15 +39,10 @@ spec = do
     sumDigits [1, 2, 3, 4] `shouldBe` 10
 
    it "returns the expected result for a list of multi digit numbers" $
-    sumDigits [16,7,12,5] `shouldBe` 22 --  1 + 6 + 7 + 1 + 2 + 5 
-
+    sumDigits [16,7,12,5] `shouldBe` 22
   describe "validate" $ do
    it "returns true if is valid credit card number" $
     validate 4012888888881881 `shouldBe` True
 
    it "returns true if is valid credit card number" $
     validate 4012888888881882 `shouldBe` False
-
-  describe "hanoi" $ do
-  it "returns correct steps" $
-    hanoi 2 "a" "b" "c" `shouldBe` [("a","c"), ("a","b"), ("c","b")]

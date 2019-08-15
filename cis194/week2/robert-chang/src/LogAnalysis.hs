@@ -1,13 +1,12 @@
+{-# LANGUAGE ViewPatterns, ScopedTypeVariables #-}
 {-# OPTIONS_GHC -Wall #-}
 
 module LogAnalysis where
-import Data.Maybe (isJust, fromJust)
 import Text.Read ( readMaybe )
 import Log
 
--- Exercise 1
-
--- Helpers
+-- Exercise 1 Solution 1
+{-
 safeIntReader :: String -> Maybe Int
 safeIntReader = readMaybe
 
@@ -32,6 +31,23 @@ parseMessage s = case words s of
       then LogMessage Warning (getIntFromJust timestamp) (unwords msg)
       else Unknown s
     (_) -> Unknown s
+-}
+
+-- Exercise 1 Solution 2
+-- Mind blowing...
+parseMessage :: String -> LogMessage
+parseMessage ( words -> "I"
+             : (readMaybe -> Just timestamp)
+             : body ) = LogMessage Info timestamp $ unwords body
+parseMessage ( words -> "W"
+             : (readMaybe -> Just timestamp)
+             : body ) = LogMessage Warning timestamp $ unwords body
+parseMessage ( words -> "E"
+             : (readMaybe -> Just level)
+             : (readMaybe -> Just timestamp)
+             : body ) = LogMessage (Error level) timestamp $ unwords body
+parseMessage logLine  = Unknown logLine
+
 
 parse :: String -> [LogMessage]
 parse [] = []

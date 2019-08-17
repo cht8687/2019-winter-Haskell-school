@@ -65,6 +65,7 @@ insert (Unknown _) tree = tree
 {- insert to empty tree, should have LogMessage inserted -} 
 insert x Leaf        = Node Leaf x Leaf 
 insert x@(LogMessage _ t1 _) (Node left xs@(LogMessage _ t2 _) right) 
+  | t1 == t2 = Node left xs right
   | t1 < t2  = Node (insert x left) xs right
   | t1 > t2  = Node left xs (insert x right)
 

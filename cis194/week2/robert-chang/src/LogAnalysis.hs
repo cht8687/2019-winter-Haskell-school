@@ -81,3 +81,9 @@ build :: [LogMessage] -> MessageTree
 -- In this case:
 -- foldr insert Leaf [x1, x2, ..., xn] == x1 `insert` (x2 `insert` ... (xn `insert` Leaf)...)
 build = foldr insert Leaf 
+
+-- Exercise 4
+inOrder :: MessageTree -> [LogMessage]
+inOrder Leaf = []
+inOrder (Node left x right) = inOrder left ++ [x] ++ (inOrder right)
+

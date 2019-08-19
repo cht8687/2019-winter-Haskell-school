@@ -10,6 +10,7 @@ spec =
    parseMessageSpec
    insertSpec
    buildSpec
+   inOrderSpec
 
 parseMessageSpec :: Spec
 parseMessageSpec = do
@@ -37,6 +38,12 @@ insertSpec = do
 
 buildSpec :: Spec
 buildSpec = do
-    let list = [ (LogMessage (Error 2) 590 "help help"), (LogMessage Info 29 "la la la") ];
-    it "should build the logMessage" $
+  let list = [ (LogMessage (Error 2) 590 "help help"), (LogMessage Info 29 "la la la") ];
+  it "should build the logMessage" $
       build list `shouldBe` Node Leaf (LogMessage Info 29 "la la la") (Node Leaf (LogMessage (Error 2) 590 "help help") Leaf)
+
+inOrderSpec :: Spec
+inOrderSpec = do 
+  let tree = Node (Node Leaf (LogMessage Info 29 "la la la") Leaf) (LogMessage Warning 29 "la la la") Leaf 
+  it "should build the message list" $
+    inOrder tree `shouldBe` [LogMessage Info 29 "la la la",  LogMessage Warning 29 "la la la"]

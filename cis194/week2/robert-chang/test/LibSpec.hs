@@ -13,7 +13,6 @@ spec =
 
 parseMessageSpec :: Spec
 parseMessageSpec = do
-  describe "parseMessage" $ do
    it "returns correct Error Level " $ do
       parseMessage "E 2 562 help help" `shouldBe` LogMessage (Error 2) 562 "help help"
    it "return correct Info Level " $ do
@@ -25,7 +24,6 @@ parseMessageSpec = do
 
 insertSpec :: Spec
 insertSpec = do
-  describe "insert" $ do
   let tree = Node (Node Leaf (LogMessage Info 29 "la la la") Leaf) (LogMessage Warning 29 "la la la") Leaf 
   it "should insert LogMessage into the tree" $
     insert (LogMessage (Error 2) 562 "help help") Leaf `shouldBe` Node Leaf (LogMessage (Error 2) 562 "help help") Leaf
@@ -39,7 +37,6 @@ insertSpec = do
 
 buildSpec :: Spec
 buildSpec = do
-  describe "build" $ do
     let list = [ (LogMessage (Error 2) 590 "help help"), (LogMessage Info 29 "la la la") ];
     it "should build the logMessage" $
       build list `shouldBe` Node Leaf (LogMessage Info 29 "la la la") (Node Leaf (LogMessage (Error 2) 590 "help help") Leaf)

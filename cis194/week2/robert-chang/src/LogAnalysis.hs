@@ -61,7 +61,6 @@ insert :: LogMessage -> MessageTree -> MessageTree
 {- if insert is given a LogMessage which is
 Unknown, it should return the MessageTree unchanged
 -}
-insert (Unknown _) tree = tree 
 {- insert to empty tree, should have LogMessage inserted -} 
 insert x Leaf        = Node Leaf x Leaf 
 insert x@(LogMessage _ t1 _) (Node left xs@(LogMessage _ t2 _) right) 
@@ -86,3 +85,16 @@ inOrder :: MessageTree -> [LogMessage]
 inOrder Leaf = []
 inOrder (Node left x right) = inOrder left ++ [x] ++ (inOrder right)
 
+-- Exercise 5
+whatWentWrong :: [LogMessage] -> [String]
+whatWentWrong =  fmap getMsg . inOrder . build . filter (severity 50) 
+
+severity :: Int -> LogMessage -> Bool
+severity level (LogMessage (Error lvl) _ _)
+  | lvl > level  = True
+  | otherwise = False
+severity _ _ = False
+
+getMsg :: LogMessage -> String
+getMsg (LogMessage (Error _) _ msg) = msg
+getMsg _ = undefined

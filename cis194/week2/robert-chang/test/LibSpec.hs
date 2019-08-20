@@ -11,6 +11,7 @@ spec =
    insertSpec
    buildSpec
    inOrderSpec
+   whatWentWrongSpec
 
 parseMessageSpec :: Spec
 parseMessageSpec = do
@@ -47,3 +48,9 @@ inOrderSpec = do
   let tree = Node (Node Leaf (LogMessage Info 29 "la la la") Leaf) (LogMessage Warning 29 "la la la") Leaf 
   it "should build the message list" $
     inOrder tree `shouldBe` [LogMessage Info 29 "la la la",  LogMessage Warning 29 "la la la"]
+
+whatWentWrongSpec :: Spec
+whatWentWrongSpec = do
+  let list = [ (LogMessage (Error 82) 590 "help help"), (LogMessage Info 29 "la la la"), (LogMessage (Error 83) 591 "help help2"), (LogMessage (Error 10) 590 "help help3") ];
+  it "should return correct message" $
+    whatWentWrong list `shouldBe` ["help help", "help help2"] 

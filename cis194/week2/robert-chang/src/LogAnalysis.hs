@@ -91,7 +91,7 @@ whatWentWrong =  fmap getMsg . inOrder . build . filter (severity 50)
 
 severity :: Int -> LogMessage -> Bool
 severity level (LogMessage (Error lvl) _ _)
-  | lvl > level  = True
+  | lvl >= level = True
   | otherwise = False
 severity _ _ = False
 

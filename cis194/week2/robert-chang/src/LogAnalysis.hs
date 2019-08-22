@@ -83,7 +83,7 @@ build = foldr insert Leaf
 -- Exercise 4
 inOrder :: MessageTree -> [LogMessage]
 inOrder Leaf = []
-inOrder (Node left x right) = inOrder left ++ [x] ++ (inOrder right)
+inOrder (Node left x right) = inOrder left ++ [x] ++ inOrder right
 
 -- Exercise 5
 whatWentWrong :: [LogMessage] -> [String]

@@ -1,10 +1,10 @@
-name:                homework2
+name:                jimfang
 version:             0.1.0.0
-github:              "githubuser/homework2"
+github:              "githubuser/jimfang"
 license:             BSD3
-author:              "Tien"
-maintainer:          "tienlindev@gmail.com"
-copyright:           "2019 Tien"
+author:              "Author name here"
+maintainer:          "example@example.com"
+copyright:           "2019 Author name here"
 
 extra-source-files:
 - README.md
@@ -17,19 +17,16 @@ extra-source-files:
 # To avoid duplicated efforts in documentation and dealing with the
 # complications of embedding Haddock markup inside cabal files, it is
 # common to point users to the README.md file.
-description:         Please see the README on GitHub at <https://github.com/githubuser/homework2#readme>
+description:         Please see the README on GitHub at <https://github.com/githubuser/jimfang#readme>
 
 dependencies:
 - base >= 4.7 && < 5
-- hspec
-
-default-extensions: ViewPatterns
 
 library:
   source-dirs: src
 
 executables:
-  homework2-exe:
+  jimfang-exe:
     main:                Main.hs
     source-dirs:         app
     ghc-options:
@@ -37,15 +34,15 @@ executables:
     - -rtsopts
     - -with-rtsopts=-N
     dependencies:
-    - homework2
+    - jimfang
 
 tests:
-  homework2-test:
-    main:                LogAnalysisSpec.hs
+  jimfang-test:
+    main:                Spec.hs
     source-dirs:         test
     ghc-options:
     - -threaded
     - -rtsopts
     - -with-rtsopts=-N
     dependencies:
-    - homework2
+    - jimfang

@@ -6,11 +6,11 @@
 
 We are based on [CIS194](https://www.seas.upenn.edu/~cis194/spring13/lectures.html) which is a 12 week course and we will extend it with advanced contents.
 
-Each class has average length of 2 hours. Each week, we will pick a time and place and announce it.
+Each class has average length of 2 hours. Each week, we will pick a time and place, and announce it.
 
 
 
-## Materials that we used for this class
+## Materials that we use for this class
 
 
 
@@ -29,10 +29,12 @@ This course is widely recommended by Haskell learners.
 After each week's class, participants need to complete assignments from the cis194 course and submit to this repo as a [Pull Request](https://github.com/fp-works/2019-winter-Haskell-school/pulls).
 
 
-You can skip the assignments, but remember:
+You shouldn’t skip the assignments, and remember:
 
 > If you don't do your homework and expect to be a Haskell programmer in the end of this course just by coming to/reading the lecture, you are kidding yourself. &mdash;Shine Li
 
+
+> Why is Zehua so good even though he jigs classes all the time? Because he does his homework. &mdash;Shine Li
 
 
 You can also raise any questions or issues when you are learning Haskell and raise it to [here](https://github.com/fp-works/2019-winter-Haskell-school/issues).
@@ -42,13 +44,13 @@ You can also raise any questions or issues when you are learning Haskell and rai
 You can submit your assignment to this path `cis194/week1/Yourname`, replace Yourname with your own.
 
 
-*If you don't do your homework and expect to be a Haskell programmer in the end of this course just by coming to/reading the lecture, you are kidding yourself.*
+*If you don't do your homework and expect to be a Haskell programmer in the end of this course just by coming to/reading the lecture, you are **KIDDING** yourself.*
 
 
-## Other resources
-### Setup local development environment
+
+## Setup local development environment
 - [install stack](https://docs.haskellstack.org/en/stable/README/)
-- `stack new project name`
+- `stack new <PACKAGE_NAME> <TEMPLATE_NAME>`
 - Then you have the following choices:
   - Use GHCi. This is invoked via `stack ghci` under your project root.
     - Every time you change your code, you can use `:r` to reload your ghci session with latest code. It will show error if your code does not compile.
@@ -68,13 +70,18 @@ You can submit your assignment to this path `cis194/week1/Yourname`, replace You
     - atom
       - `atom-haskell` This is a plugin that installs a list of other plugins to support Haskell development
 
-### Knowledge points
+
+## Knowledge points
 
 <p align="center">
     <img src="shareknowledge.jpeg" alt="Image" width="200" height="200" />
 </p>
 
 - There are valuable take away knowledge hiding in the comments of homework PRs, they are collected under https://github.com/fp-works/2019-winter-Haskell-school/wiki/Best-Practises-Tips for easy discovery.
+
+## TIL
+
+- Open an issue on the issue tracker and label it `Today I learnt` to share what you have learnt today!
 
 
 ## YouTube channel [Instant FP](https://www.youtube.com/channel/UC9Hfs-_0PtqNT9Az-Jf1ptQ)

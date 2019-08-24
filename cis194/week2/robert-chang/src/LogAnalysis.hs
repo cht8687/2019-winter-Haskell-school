@@ -87,7 +87,7 @@ inOrder (Node left x right) = inOrder left ++ [x] ++ inOrder right
 
 -- Exercise 5
 whatWentWrong :: [LogMessage] -> [String]
-whatWentWrong =  fmap getMsg . inOrder . build . filter (severity 50) 
+whatWentWrong =  fmap getMsg . inOrder . build . filter . severity $ 50
 
 severity :: Int -> LogMessage -> Bool
 severity level (LogMessage (Error lvl) _ _)

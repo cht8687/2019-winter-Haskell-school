@@ -31,7 +31,7 @@ skips l = (\n -> sieve n (drop (n-1) l)) <$> [1..length l]
 
 -- using recurison 
 localMaxima :: [Integer] -> [Integer]
-localMaxima (x:xs:y:z)
-  | x < xs && xs > y = xs : localMaxima (xs:y:z)
-  | otherwise      = localMaxima (xs:y:z)
+localMaxima (x:y:z:as)
+  | x < y && y > z = y : localMaxima (y:z:as)
+  | otherwise      = localMaxima (y:z:as)
 localMaxima _ = []

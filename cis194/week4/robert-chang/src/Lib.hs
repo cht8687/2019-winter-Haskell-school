@@ -26,8 +26,8 @@ fun2' = sum
  . takeWhile (>1) 
  . iterate (\n -> 
     if even n
-      then n `div` 2
-      else 3 * n + 1) 
+    then n `div` 2
+    else 3 * n + 1) 
 -}
 
 fun2' = sum 

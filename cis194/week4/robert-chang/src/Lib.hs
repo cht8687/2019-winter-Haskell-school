@@ -1,5 +1,5 @@
 module Lib where
-
+import Data.Bool.HT
 --Task1
 
 fun1 :: [Integer] -> Integer
@@ -20,6 +20,7 @@ fun2 n | even n = n + fun2 (n `div` 2)
  | otherwise = fun2 (3 * n + 1)
 
 fun2' :: Integer -> Integer
+{-
 fun2' = sum 
  . filter even
  . takeWhile (>1) 
@@ -27,3 +28,9 @@ fun2' = sum
     if even n
       then n `div` 2
       else 3 * n + 1) 
+-}
+
+fun2' = sum 
+ . filter even
+ . takeWhile (>1) 
+ . iterate (\n -> (even n ) ?: (n `div` 2, (3 * n + 1)))

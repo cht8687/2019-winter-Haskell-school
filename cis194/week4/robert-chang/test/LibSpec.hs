@@ -6,6 +6,7 @@ spec :: Spec
 spec =
   describe "Week4" $ do
    wholemealSpec
+   moreFoldsSpec
 
 wholemealSpec :: Spec
 wholemealSpec = do
@@ -26,3 +27,11 @@ wholemealSpec = do
 
   it "case 100" $
     fun2' 100 `shouldBe` fun2 100
+
+moreFoldsSpec :: Spec
+moreFoldsSpec = do 
+  it "should return correct result" $
+    xor [False, True, False] `shouldBe` True
+
+  it "should return correct result" $
+    xor [False, True, False, False, True] `shouldBe` False

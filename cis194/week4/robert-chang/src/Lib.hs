@@ -34,3 +34,21 @@ fun2' = sum
  . filter even
  . takeWhile (>1) 
  . iterate (\n -> (even n ) ?: (n `div` 2, (3 * n + 1)))
+
+
+-- task 3
+xor :: [Bool] -> Bool
+{-
+
+True (/=) True == False
+True (/=) False == True
+
+so this can be used to calculate the result:
+
+foldr (/=) False [True, False, True]
+step1 list: [True, False, True] => True:(False:(True:[]))
+step2 apply foldr: True (/=) (False (/=) (True (/=) False)) 
+step3 result: False
+-}
+xor = foldr (/=) False
+

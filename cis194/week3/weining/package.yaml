@@ -1,10 +1,10 @@
-name:                homework3
+name:                cis194-homework03
 version:             0.1.0.0
-github:              "tienwei/homework3"
+github:              "githubuser/cis194-homework03"
 license:             BSD3
-author:              "Tien"
-maintainer:          "tienlindev@gmail.com"
-copyright:           "2019 Tien"
+author:              "Author name here"
+maintainer:          "example@example.com"
+copyright:           "2019 Author name here"
 
 extra-source-files:
 - README.md
@@ -17,34 +17,24 @@ extra-source-files:
 # To avoid duplicated efforts in documentation and dealing with the
 # complications of embedding Haddock markup inside cabal files, it is
 # common to point users to the README.md file.
-description:         Please see the README on GitHub at <https://github.com/tienwei/homework3#readme>
+description:         Please see the README on GitHub at <https://github.com/githubuser/cis194-homework03#readme>
 
 dependencies:
 - base >= 4.7 && < 5
-- hspec
-- array
+- utility-ht
+- ilist
 
 library:
   source-dirs: src
 
-executables:
-  homework3-exe:
-    main:                Main.hs
-    source-dirs:         app
-    ghc-options:
-    - -threaded
-    - -rtsopts
-    - -with-rtsopts=-N
-    dependencies:
-    - homework3
-
 tests:
-  homework3-test:
-    main:                GolfSpec.hs
+  cis194-homework03-test:
+    main:                Spec.hs
     source-dirs:         test
     ghc-options:
     - -threaded
     - -rtsopts
     - -with-rtsopts=-N
     dependencies:
-    - homework3
+    - cis194-homework03
+    - hspec

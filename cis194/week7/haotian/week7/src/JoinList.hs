@@ -36,6 +36,7 @@ jlToList Empty = []
 jlToList (Single _ a) = [a]
 jlToList (Append _ l1 l2) = jlToList l1 ++ jlToList l2
 
+
 -- implement indexJ functions
 indexJ :: (Sized b, Monoid b) => Int -> JoinList b a -> Maybe a
 indexJ i jl = jlToList jl !!? i
@@ -66,3 +67,16 @@ dropJ n l@(Append m l1 l2)
     sizeM = getSize . size
     sizeL = getSize . size . tag 
 dropJ _ _ = Empty
+
+--task 2 takeJ
+takeJ :: (Sized b, Monoid b) => Int -> JoinList b a -> JoinList b a
+takeJ n l1@(Single _ _)
+  | n > 0 = l1
+takeJ n l@(Append m l1 l2)
+  | n >= sizeM m = l
+  | n >= sizeL l1 = l1 +++ takeJ (n - sizeL l1) l2
+  | n > 0 = takeJ n l1
+  where
+    sizeM = getSize . size
+    sizeL = getSize . size . tag 
+takeJ _ _ = Empty

@@ -85,4 +85,4 @@ takeJ _ _ = Empty
 
 --task 3
 scoreLine :: String -> JoinList Score String
-
+scoreLine str = Single (scoreString str) str

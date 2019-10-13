@@ -82,3 +82,26 @@ class Functor f where
 
 instance Functor Parser where
   fmap f (Parser g) = Parser $ fmap (first f) . g
+
+
+{-
+
+Applicative Functor:
+
+ class Functor f => Applicative f where
+  pure :: a -> f a
+  (<*>) :: f (a -> b) -> f a -> f b
+
+Applicative law:
+  pure id <*> x = x
+  pure (g x) = pure g <*> pure x
+  x <*> pure y = pure (\g -> g y) <*> x
+  x <*> (y <*> z) = (pure (.) <*> x <*> y) <*> z
+-}
+
+instance Applicative Parser where
+  pure x = Parser $ \s -> Just (x, s)
+  Parser f <*> Parser g = Parser $ \s ->
+                          case f s of
+                            Nothing -> Nothing
+                            Just (r, s') -> fmap (first r) . g $ s'

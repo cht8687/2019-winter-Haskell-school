@@ -10,7 +10,6 @@ newtype Score = Score Int
 
 instance Monoid Score where
   mempty  = Score 0
-  mappend = (+)
 
 instance Semigroup Score where
   (<>) = (+)
